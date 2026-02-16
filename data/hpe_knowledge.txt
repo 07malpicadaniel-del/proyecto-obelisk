@@ -1,0 +1,18 @@
+HPE GREENLAKE - BATTLECARD 2025
+¿Qué es?
+HPE GreenLake es una plataforma de "Edge-to-Cloud" que ofrece la experiencia de la nube en cualquier lugar: en el centro de datos del cliente, en el borde (edge) o en instalaciones de colocación. Permite un modelo de pago por consumo (pay-per-use).
+
+Diferenciadores Clave:
+1. Economía de la Nube On-Premise: Elimina el sobreaprovisionamiento. Los clientes solo pagan por lo que usan, reduciendo el TCO (Total Cost of Ownership) hasta un 30-40%.
+2. Control y Seguridad: A diferencia de AWS/Azure pública, los datos nunca salen del control del cliente, crucial para bancos, hospitales y gobierno.
+3. Gestión Unificada: HPE GreenLake Central permite gestionar cargas de trabajo en AWS, Azure, Google Cloud y On-Premise desde un solo panel.
+
+HPE ARUBA NETWORKING
+Enfoque: "Security-first, AI-powered networking".
+Ideal para: Empresas con muchos empleados móviles, IoT, y oficinas remotas.
+Ventaja vs Cisco: Aruba ClearPass ofrece mejor seguridad de acceso (Zero Trust) y es más abierto a integraciones que Cisco ISE.
+
+CASOS DE USO POR INDUSTRIA
+- Retail (Walmart, Target): Usar Aruba para trackear clientes en tienda y GreenLake para gestionar inventario en tiempo real sin latencia.
+- Manufactura (Tesla, Cemex): Computación en el Borde (Edge Compute) para procesar datos de sensores de fábricas sin enviarlos a la nube (baja latencia).
+- Finanzas: Mantener datos sensibles en GreenLake Private Cloud para cumplir con regulaciones, pero con la agilidad de la nube.
