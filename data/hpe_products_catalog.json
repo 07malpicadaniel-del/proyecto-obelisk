@@ -1,0 +1,110 @@
+{
+  "productos_hpe": [
+    {
+      "id": "greenlake",
+      "nombre": "HPE GreenLake",
+      "categoria": "Hybrid Cloud / as-a-Service",
+      "url": "https://www.hpe.com/us/en/greenlake.html",
+      "descripcion": "Edge-to-cloud as-a-service platform bringing public cloud experience anywhere: datacenter, colocation, edge.",
+      "trigger_keywords": ["expansion","data center","nuevo datacenter","capex reduction","cloud migration","hybrid cloud","opex model","scalability","infrastructure modernization","pay per use","multi-cloud","cloud repatriation"],
+      "industrias_clave": ["Retail","Manufacturing","Financial Services","Healthcare","Telecoms","Energy"],
+      "pain_points_resuelve": ["High CAPEX on infrastructure","Resource over-provisioning","Vendor lock-in with public cloud","Need for on-premise control with cloud flexibility"],
+      "ventajas_vs_competencia": {
+        "Dell APEX": "More flexible financial model, better edge-to-cloud integration",
+        "AWS Outposts": "Full on-prem control, no vendor lock-in, lower latency",
+        "Azure Stack": "Unified multi-cloud management, better long-term TCO"
+      },
+      "caso_uso_ejemplo": "Bimbo reduced CAPEX 40% migrating 70% of workloads to GreenLake while keeping sensitive data on-prem",
+      "speech_hook": "What if you could have AWS agility with full control of your critical data?"
+    },
+    {
+      "id": "aruba",
+      "nombre": "HPE Aruba Networking",
+      "categoria": "Networking / Edge",
+      "url": "https://www.hpe.com/us/en/aruba.html",
+      "descripcion": "Enterprise edge-to-cloud networking with built-in AI for automation and Zero Trust security.",
+      "trigger_keywords": ["network modernization","wifi upgrade","wi-fi 6","wi-fi 7","zero trust","remote work","hybrid work","branch offices","SD-WAN","network security","ransomware","cybersecurity","SASE"],
+      "industrias_clave": ["Education","Hospitality","Retail","Healthcare","Enterprise"],
+      "pain_points_resuelve": ["Complex legacy networks","Lack of traffic visibility","Ransomware vulnerability","Poor remote user experience"],
+      "ventajas_vs_competencia": {
+        "Cisco Meraki": "30% lower TCO, better AI-powered management, no vendor lock-in",
+        "Juniper Mist": "Simpler management, better Zero Trust security integration",
+        "Fortinet": "Network-first approach with integrated security (not bolt-on)"
+      },
+      "caso_uso_ejemplo": "Universidad Anáhuac modernized 30-campus network with Aruba, reducing IT tickets 60% with AI-driven troubleshooting",
+      "speech_hook": "Did you know 80% of ransomware attacks enter through poorly segmented networks?"
+    },
+    {
+      "id": "alletra",
+      "nombre": "HPE Alletra Storage",
+      "categoria": "Storage / Data Management",
+      "url": "https://www.hpe.com/us/en/alletra.html",
+      "descripcion": "Intelligent cloud-native storage with AI that predicts and prevents issues before they happen.",
+      "trigger_keywords": ["data growth","storage consolidation","backup modernization","ransomware protection","data recovery","NVMe","flash storage","storage refresh","VM sprawl","database performance","data lake","unstructured data"],
+      "industrias_clave": ["Financial Services","Healthcare","Media","Manufacturing"],
+      "pain_points_resuelve": ["Explosive unstructured data growth","Slow unreliable backups","Ransomware risk on critical data","Unmanageable storage silos"],
+      "ventajas_vs_competencia": {
+        "Dell EMC PowerStore": "AI-driven ops reduce admin 80%, better availability guarantee",
+        "Pure Storage": "Better price/performance, native hybrid cloud integration",
+        "NetApp": "Simpler management, better integrated ransomware protection"
+      },
+      "caso_uso_ejemplo": "BBVA migrated 5 PB of legacy storage to Alletra, improving query speed 10x and reducing physical footprint 60%",
+      "speech_hook": "How much would it cost you to lose database access for 48 hours?"
+    },
+    {
+      "id": "proliant",
+      "nombre": "HPE ProLiant Gen11 Servers",
+      "categoria": "Compute / Servers",
+      "url": "https://www.hpe.com/us/en/proliant-servers.html",
+      "descripcion": "General-purpose servers with Silicon Root of Trust security and advanced management with iLO 6.",
+      "trigger_keywords": ["server refresh","virtualization","VMware","Hyper-V","data center expansion","compute upgrade","end of life","EOL servers","aging infrastructure","consolidation","server migration"],
+      "industrias_clave": ["Enterprise","SMB","Government","Education"],
+      "pain_points_resuelve": ["Unsupported servers (security risk)","High energy consumption from legacy hardware","Multi-vendor management complexity","Lack of provisioning automation"],
+      "ventajas_vs_competencia": {
+        "Dell PowerEdge": "Better out-of-band management with iLO 6, superior firmware security",
+        "Lenovo ThinkSystem": "15% better energy efficiency, better LATAM support",
+        "Supermicro": "Better cost/performance balance for enterprise workloads"
+      },
+      "caso_uso_ejemplo": "Cemex consolidated 300 legacy servers to 80 ProLiant Gen11, cutting power consumption 40% and freeing 200m² of space",
+      "speech_hook": "Did you know servers 5+ years old consume 3x more energy than Gen11 for the same performance?"
+    },
+    {
+      "id": "simplivity",
+      "nombre": "HPE SimpliVity",
+      "categoria": "Hyperconverged Infrastructure (HCI)",
+      "url": "https://www.hpe.com/us/en/integrated-systems/simplivity.html",
+      "descripcion": "Hyperconverged infrastructure with inline deduplication, integrated backup and simplified management.",
+      "trigger_keywords": ["hyperconverged","HCI","virtualization","VDI","virtual desktop","ROBO","remote office","infrastructure simplification","3-tier to HCI","edge computing"],
+      "industrias_clave": ["SMB","Enterprise ROBO","Education","Healthcare"],
+      "pain_points_resuelve": ["Complex traditional 3-tier architectures","Slow network-consuming backups","Multiple management consoles","Unpredictable remote site growth"],
+      "ventajas_vs_competencia": {
+        "Nutanix": "Global deduplication (not just local), zero-impact network backups",
+        "VMware vSAN": "Simpler management, better TCO in ROBO scenarios",
+        "Cisco HyperFlex": "Better integration with HPE ecosystem"
+      },
+      "caso_uso_ejemplo": "Grupo Elektra deployed SimpliVity across 800 stores, reducing IT footprint 70%",
+      "speech_hook": "What if you could manage 1,000 remote sites as if they were one?"
+    },
+    {
+      "id": "cray",
+      "nombre": "HPE Cray AI/HPC Solutions",
+      "categoria": "AI / Machine Learning / HPC",
+      "url": "https://www.hpe.com/us/en/compute/hpc.html",
+      "descripcion": "High-performance computing and AI infrastructure for training, inference, and large-scale data analytics.",
+      "trigger_keywords": ["artificial intelligence","AI infrastructure","machine learning","deep learning","GPU","HPC","high performance computing","model training","generative AI","LLM","data science","analytics"],
+      "industrias_clave": ["Technology","Financial Services","Healthcare","Research","Energy","Manufacturing"],
+      "pain_points_resuelve": ["Insufficient compute for AI workloads","GPU scarcity and cost","Complex AI infrastructure management","Need for on-prem AI for data sovereignty"],
+      "ventajas_vs_competencia": {
+        "NVIDIA DGX": "Better integration with enterprise storage and networking, more flexible configurations",
+        "Dell PowerEdge AI": "Purpose-built HPC heritage, better large-scale cluster management",
+        "Cloud GPU (AWS/Azure)": "Predictable costs, data sovereignty, lower latency for inference"
+      },
+      "caso_uso_ejemplo": "Mayo Clinic uses HPE Cray for genomics research, reducing analysis time from weeks to hours",
+      "speech_hook": "Are you spending more on cloud GPU bills than you would on dedicated AI infrastructure?"
+    }
+  ],
+  "metadata": {
+    "version": "2.0",
+    "ultima_actualizacion": "2026-02-21"
+  }
+}

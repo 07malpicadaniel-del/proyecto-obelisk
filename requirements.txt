@@ -1,0 +1,22 @@
+# ── Core ──────────────────────────────────────────────────────────────────────
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+python-dotenv==1.0.1
+pydantic==2.10.5
+requests==2.32.3
+
+# ── AI / LLM ─────────────────────────────────────────────────────────────────
+groq==0.13.0
+
+# ── Búsqueda Web ─────────────────────────────────────────────────────────────
+duckduckgo-search==7.3.1
+google-search-results==2.4.2    # SerpAPI (pip install google-search-results)
+
+# ── Qdrant + Embeddings (OPCIONAL — el sistema funciona sin esto) ────────────
+# Descomenta solo si configuraste Qdrant en .env
+# qdrant-client==1.12.1
+# langchain-community==0.3.15
+# fastembed==0.4.2
+
+# ── Utils ────────────────────────────────────────────────────────────────────
+python-multipart==0.0.20

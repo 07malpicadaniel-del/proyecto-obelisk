@@ -1,0 +1,20 @@
+# Entornos virtuales
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+
+# Node / Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Seguridad (API Keys)
+.env
+
+# IDEs
+.vscode/
+.idea/
+node_modules

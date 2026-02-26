@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+/* Ajuste para pantalla completa */
+:root, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-color: #0D1117;
+}
