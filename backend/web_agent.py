@@ -2,6 +2,8 @@
 web_agent.py — Web Research Agent for HPE Sales Guardian
 Focused on IT infrastructure buying signals.
 Primary: SerpAPI (Google) | Fallback: DuckDuckGo
+
+🔴 FIX v8.2: Compatible con duckduckgo_search v5 y v6+
 """
 import os
 import json
@@ -112,8 +114,18 @@ def _search_serpapi(company: str) -> list[dict]:
 
 
 def _search_duckduckgo(company: str) -> list[dict]:
+    """
+    🔴 FIX v8.2: Compatible con duckduckgo_search v5 y v6+
+    """
     try:
-        from duckduckgo_search import DDGS
+        # Try new API first (v6+)
+        try:
+            from duckduckgo_search import DDGS
+        except ImportError:
+            # Fallback to old API (v5)
+            from duckduckgo_search import ddg
+            DDGS = ddg
+        
         all_results = []
         queries = [
             f"{company} new data center cloud infrastructure investment",
@@ -121,9 +133,19 @@ def _search_duckduckgo(company: str) -> list[dict]:
             f"{company} digital transformation IT modernization",
             f"{company} new CIO CTO technology leadership hired",
         ]
+        
+        # Instanciar una vez para evitar warnings
+        ddgs = DDGS()
+        
         for q in queries:
-            results = DDGS().text(q, max_results=4, timelimit="m")
-            all_results.extend(results or [])
+            try:
+                results = ddgs.text(q, max_results=4, timelimit="m")
+                all_results.extend(results or [])
+            except Exception as query_error:
+                # Si un query falla, continuar con los demás
+                print(f"   ⚠️ DuckDuckGo query failed: {query_error}")
+                continue
+        
         seen = set()
         unique = []
         for r in all_results:

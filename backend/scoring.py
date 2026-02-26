@@ -1,6 +1,8 @@
 """
 scoring.py — Intelligent Opportunity Scoring for HPE Sales Guardian
 Produces meaningful scores from 0-100 based on signal quality, not just quantity.
+
+🔴 FIX v8.2: Graceful degradation when no new triggers found
 """
 
 # Trigger types ranked by value to HPE sales
@@ -26,12 +28,36 @@ HPE_RELEVANT_TECH = {
 
 def calculate_score(triggers: list, tech_stack: list, industry: str,
                     product_confidence: float, financial_signals: list = None,
-                    pain_points: list = None, competitors: list = None) -> dict:
+                    pain_points: list = None, competitors: list = None,
+                    previous_score: int = None) -> dict:
     """
     Calculate a meaningful opportunity score from 0-100.
     Returns dict with score, breakdown, and label.
+    
+    Args:
+        previous_score: Previous score for graceful degradation when no new triggers
     """
     breakdown = {}
+
+    # 🔴 FIX: Si no hay triggers pero existía un score previo, degradar gradualmente
+    if len(triggers) == 0 and previous_score is not None and previous_score > 0:
+        # Degradación suave: máximo -10 puntos por ciclo
+        degraded_score = max(30, previous_score - 10)  # Piso en 30 vs 5 original
+        breakdown["triggers"] = 0
+        breakdown["tech_stack"] = 0
+        breakdown["product_match"] = 0
+        breakdown["financial"] = 0
+        breakdown["pain_points"] = 0
+        breakdown["competitive"] = 0
+        breakdown["_note"] = "No new triggers - score degraded from previous"
+        
+        return {
+            "score": degraded_score,
+            "label": "DEGRADED" if degraded_score < 60 else "MODERATE",
+            "breakdown": breakdown,
+            "trigger_count": 0,
+            "trigger_types": [],
+        }
 
     # ── 1. Trigger Score (max 40 pts) ─────────────────────────────────────
     trigger_points = 0
@@ -104,8 +130,11 @@ def calculate_score(triggers: list, tech_stack: list, industry: str,
     breakdown["competitive"] = round(comp_score, 1)
 
     # ── Total ────────────────────────────────────────────────────────────
-    total = trigger_score + tech_score + confidence_score + fin_score + pp_score + comp_score
-    total = max(5, min(100, round(total)))
+    raw_total = trigger_score + tech_score + confidence_score + fin_score + pp_score + comp_score
+    
+    # 🔴 FIX: Piso mínimo aumentado de 5 → 10 para nuevas empresas
+    # Empresas con historial tienen piso de 30 (ver arriba)
+    total = max(10, min(100, round(raw_total)))
 
     # Label
     if total >= 80:

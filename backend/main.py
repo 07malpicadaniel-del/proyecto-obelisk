@@ -545,14 +545,31 @@ JSON:
     full_speech = f"{ai_json.get('speech_opening','')}\n\n{ai_json.get('speech_challenge','')}\n\n{ai_json.get('speech_bridge','')}\n\n{ai_json.get('speech_solution','')}"
     ai_json["speech_approach"] = full_speech.strip()
 
+    # 🔴 FIX v8.2: Obtener score previo para degradación gradual
+    previous_score = None
+    conn_prev = get_conn()
+    prev = conn_prev.execute(
+        "SELECT fit_score FROM analysis_history WHERE LOWER(company_name)=LOWER(?) ORDER BY created_at DESC LIMIT 1",
+        (request.company_name,)
+    ).fetchone()
+    conn_prev.close()
+    if prev and prev["fit_score"]:
+        previous_score = prev["fit_score"]
+        print(f"   📊 Previous score found: {previous_score}")
+    
     score_result = calculate_score(
         triggers=triggers, tech_stack=tech_stack, industry=industry,
         product_confidence=primary.get("confidence", 0),
         financial_signals=web_data.get("financial_signals", []),
         pain_points=ai_json.get("pain_points", []),
-        competitors=web_data.get("competitors", [])
+        competitors=web_data.get("competitors", []),
+        previous_score=previous_score  # 🔴 FIX: Pasar score anterior
     )
     fit_score = score_result["score"]
+    
+    # 🔴 DEBUG: Mostrar si hubo degradación
+    if "_note" in score_result.get("breakdown", {}):
+        print(f"   ⚠️  {score_result['breakdown']['_note']}")
 
     save_analysis({"company_name":request.company_name,"industry":industry,"fit_score":fit_score,
         "triggers":triggers,"tech_stack":tech_stack,"competitors":web_data.get("competitors",[]),
