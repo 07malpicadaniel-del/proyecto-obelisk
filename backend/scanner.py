@@ -83,7 +83,8 @@ def scan_account(company_name: str) -> Dict:
         product_confidence=confidence,
         financial_signals=web_data.get("financial_signals", []),
         pain_points=web_data.get("pain_points_detected", []),
-        competitors=web_data.get("competitors", [])
+        competitors=web_data.get("competitors", []),
+        previous_score=previous_score  # 🔴 FIX v8.2: Pasar score anterior para degradación gradual
     )
     fit_score = score_result["score"]
 
